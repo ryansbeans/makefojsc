@@ -51,7 +51,7 @@
         .marquee-inner-wrapper{
             background: #000;
             height: 350px;
-            font-size: 300px;
+            font-size: 20em;
             color: #fff;
             line-height: 300px;
             margin: 0 auto;
@@ -109,10 +109,10 @@
 </script>
 <script>
 
-    let times = 80
+    let times = 70
     $(function () {
         var a = new Array();
-        for(var i=0;i<80;i++){        //一维长度为3
+        for(var i=0;i<100;i++){        //一维长度为3
             a[i] = new Array();
             let box = document.createElement('div');
             box.style.className = 'box'
@@ -124,14 +124,13 @@
                 div.id = 'mask_i' + i + '_j'+j;
                 div.className = 'mask';
                 div.appendChild(document.createTextNode("牛逼！"));
-                div.style.fontSize =  '20px';
+                div.style.fontSize =  '0.9em';
                 div.style.display =  'table';
                 div.style.top =  '20px';
                 box.appendChild(div)
             }
             document.body.appendChild(box)
         }
-        console.log($(".box_i" + 0))
         aaa ()
     })
     function aaa () {
@@ -143,14 +142,13 @@
 
                 console.log(arrs[n])
                 console.log("#box_i" + i)
-                $("#box_i" + i).attr("class", "")
-                $("#box_i" + i).addClass(arrs[n])
+                $("#box_i" + i).attr("class", "").addClass(arrs[n])
                 if (n === 6) {
                     n = 0
                 }
                 n++
             }
-        }, 500)
+        }, 1000)
 
     }
 
