@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>姜少聪——全球唯一指定官网</title>
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .mask {
+            color: #fff;
+        }
+        .red > .mask{
+            color: red !important;
+        }
+        .blue >  .mask {
+            color: blue !important;
+        }
+        .aquamarine >  .mask {
+            color: aquamarine !important;
+        }
+        .blueviolet>  .mask {
+            color: blueviolet !important;
+        }
+        .coral>  .mask {
+            color: coral !important;
+        }
+        .lawngreen>  .mask {
+            color: lawngreen !important;
+        }
+        .gold>  .mask {
+            color: gold !important;
+        }
+        .marquee-outer-wrapper{
+            position: absolute;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            overflow: hidden;
+            height: 500px;
+            width: 100%;
+        }
+        .marquee-inner-wrapper{
+            background: #000;
+            height: 350px;
+            font-size: 300px;
+            color: #fff;
+            line-height: 300px;
+            margin: 0 auto;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-inner-wrapper span{
+            position: absolute;
+            top: 0;
+            left: 100%;
+            height: 100%;
+        }
+        .first-marquee{
+            -webkit-animation: 25s first-marquee linear infinite normal;
+            animation: 25s first-marquee linear infinite normal;
+            padding-right: 10%;
+        }
+        @keyframes first-marquee {
+            0% {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                -webkit-transform: translate3d(-200%, 0, 0);
+                transform: translate3d(-200%, 0, 0);
+                display: none;
+            }
+        }
+        .second-marquee{
+            -webkit-animation: 25s first-marquee linear 12s infinite normal;
+            animation: 25s first-marquee linear 12s infinite normal;
+            padding-right: 13%;
+        }
+        @keyframes second-marquee {
+            0% {
+                -webkit-transform: translate3d(0%, 0, 0);
+                transform: translate3d(0%, 0, 0);
+            }
+            100% {
+                -webkit-transform: translate3d(-200%, 0, 0);
+                transform: translate3d(-200%, 0, 0);
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="marquee-outer-wrapper">
+    <div class="marquee-inner-wrapper">
+        <span class="first-marquee">姜少聪牛逼！姜少聪牛逼！姜少聪牛逼！姜少聪牛逼！</span>
+        <span class="second-marquee">姜少聪牛逼！姜少聪牛逼！姜少聪牛逼！姜少聪牛逼！</span>
+    </div>
+</div>
+<script src="https://cdn.staticfile.org/jquery/2.0.0/jquery.min.js">
+</script>
+<script>
+
+    let times = 80
+    $(function () {
+        var a = new Array();
+        for(var i=0;i<80;i++){        //一维长度为3
+            a[i] = new Array();
+            let box = document.createElement('div');
+            box.style.className = 'box'
+            box.style.cssFloat = 'left'
+            box.id = 'box_i' + i;
+            for(var j=0;j<times;j++){    //二维长度为5
+                a[i][j] = i+j;
+                var div = document.createElement('div');
+                div.id = 'mask_i' + i + '_j'+j;
+                div.className = 'mask';
+                div.appendChild(document.createTextNode("牛逼！"));
+                div.style.fontSize =  '20px';
+                div.style.display =  'table';
+                div.style.top =  '20px';
+                box.appendChild(div)
+            }
+            document.body.appendChild(box)
+        }
+        console.log($(".box_i" + 0))
+        aaa ()
+    })
+    function aaa () {
+        let arrs = ['red', 'blue', 'aquamarine', 'blueviolet', 'coral', 'lawngreen', 'gold']
+        setInterval(function () {
+            var num=Math.floor(Math.random()*6+1);
+            let n = num
+            for (let i = 0; i < times; i++) {
+
+                console.log(arrs[n])
+                console.log("#box_i" + i)
+                $("#box_i" + i).attr("class", "")
+                $("#box_i" + i).addClass(arrs[n])
+                if (n === 6) {
+                    n = 0
+                }
+                n++
+            }
+        }, 500)
+
+    }
+
+
+</script>
+</body>
+</html>
